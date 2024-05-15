@@ -1,14 +1,11 @@
 import User from "./User";
 import Characters from "./Characters";
+import Races from "./Races";
 
 
 
-// (async () => {
-//     User.sync({ force: true });
-//     Characters.sync({ force: true });
-// })();
-
-User.sync().then(() => {
-    // Depois que o modelo User for sincronizado, sincronize o modelo Characters
-    Characters.sync();
-  });
+(async () => {
+    await User.sync({ force: true });
+    await Races.sync({ force: true });
+    await Characters.sync({ force: true });
+})();
