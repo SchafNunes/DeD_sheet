@@ -6,6 +6,7 @@ import Classes from "./Classes";
 import Wepons from "./Wepons";
 import Characters_Wepons from "./Characters_Wepons";
 import Equipaments from "./Equipaments";
+import Characters_Equipaments from "./Characters_Equipaments";
 
 
 
@@ -18,4 +19,5 @@ import Equipaments from "./Equipaments";
     await Equipaments.sync({ force: true });
     await Characters.sync({ force: true });
     await Characters_Wepons.sync({ force: true });
+    await Characters_Equipaments.sync({ force: true });
 })();
