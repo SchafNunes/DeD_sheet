@@ -29,7 +29,7 @@ const Characters = sequelize.define('characters', {
 Characters.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
 Characters.belongsTo(Races, { foreignKey: 'race_id', as: 'raca' });
 Characters.belongsTo(Atributes, { foreignKey: 'atribute_id', as: 'atribute' });
-Characters.belongsTo(Atributes, { foreignKey: 'class_id', as: 'class' });
+Characters.belongsTo(Classes, { foreignKey: 'class_id', as: 'class' });
 
 
 export default Characters;
