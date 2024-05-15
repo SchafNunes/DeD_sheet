@@ -32,4 +32,6 @@ Characters.belongsTo(Atributes, { foreignKey: 'atribute_id', as: 'atribute' });
 Characters.belongsTo(Classes, { foreignKey: 'class_id', as: 'class' });
 
 
+
+
 export default Characters;
