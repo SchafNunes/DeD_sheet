@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 //import routes from './routes';
 import cors from 'cors';
-//require('./models/index');
+require('./models/index.js');
 
 const app = express();
 
