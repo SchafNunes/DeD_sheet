@@ -55,6 +55,6 @@ CREATE DATABASE sheet;
 Após configurar o ambiente, você pode iniciar o servidor localmente com o seguinte comando:
 
 ```bash
-npm run dev
+npm run test
 ```
 
