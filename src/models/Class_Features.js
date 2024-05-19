@@ -14,7 +14,7 @@ const Class_Features = sequelize.define('class_features', {
         allowNull: false
     },
     description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     },
     level: {
