@@ -10,6 +10,7 @@ import Characters_Equipaments from "./Characters_Equipaments";
 import Armors from "./Armors";
 import Character_Armors from "./Character_Armors";
 import Class_Features from "./Class_Features";
+import seedDatabase from "./Input_Dados";
 
 
 
@@ -26,4 +27,6 @@ import Class_Features from "./Class_Features";
     await Characters_Equipaments.sync({ force: true });
     await Character_Armors.sync({ force: true });
     await Class_Features.sync({ force: true });
+    seedDatabase();
 })();
+

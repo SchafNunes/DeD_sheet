@@ -16,6 +16,10 @@ const Class_Features = sequelize.define('class_features', {
     description: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    level: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 });
 
