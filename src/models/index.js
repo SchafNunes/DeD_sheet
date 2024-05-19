@@ -9,6 +9,7 @@ import Equipaments from "./Equipaments";
 import Characters_Equipaments from "./Characters_Equipaments";
 import Armors from "./Armors";
 import Character_Armors from "./Character_Armors";
+import Class_Features from "./Class_Features";
 
 
 
@@ -24,4 +25,5 @@ import Character_Armors from "./Character_Armors";
     await Characters_Wepons.sync({ force: true });
     await Characters_Equipaments.sync({ force: true });
     await Character_Armors.sync({ force: true });
+    await Class_Features.sync({ force: true });
 })();
