@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import { sequelize } from "../config/index.js";
 
 //table id, name, description, price, damage, weight, properties
-const Wepons = sequelize.define("wepons", {
+const Weapons = sequelize.define("weapons", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -28,4 +28,4 @@ const Wepons = sequelize.define("wepons", {
   },
 });
 
-export default Wepons;
+export default Weapons;

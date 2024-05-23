@@ -1,12 +1,10 @@
 import  { DataTypes } from 'sequelize';
 import {sequelize} from '../config/index.js';
 import Characters from './Characters.js';
-import Wepons from './Wepons.js';
+import Weapons from './Weapons.js';
 
 
-//table of relation between characters and wepons
-
-const Characters_Wepons = sequelize.define('characters_wepons', {
+const Characters_Weapons = sequelize.define('characters_weapons', {
     character_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -15,14 +13,14 @@ const Characters_Wepons = sequelize.define('characters_wepons', {
             key: 'id'
         }
     },
-    wepon_id: {
+    weapon_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         references: {
-            model: Wepons,
+            model: Weapons,
             key: 'id'
         }
     }
 });
 
-export default Characters_Wepons;
+export default Characters_Weapons;
