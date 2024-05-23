@@ -13,16 +13,7 @@ const Characters = sequelize.define('characters', {
         autoIncrement: true
     },
     name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    races_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    classes_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+        type: DataTypes.STRING
     }
 });
 

@@ -3,7 +3,7 @@ import express from 'express';
 import morgan from 'morgan';
 import fs from 'fs';
 import path from 'path';
-//import routes from './routes';
+import routes from './routes/index.js';
 import cors from 'cors';
 require('./models/index.js');
 
@@ -27,10 +27,10 @@ app.use(morgan('combined', { stream: acessLogStream }));
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
-// routes(app);
-// app.use((req, res) => 
-//     res.status(404).send("404 - Página não encontrada " + req.url)
-// );
+routes(app);
+app.use((req, res) => 
+    res.status(404).send("404 - Página não encontrada " + req.url)
+);
 
 app.listen(3333, () => {
     console.log(`Server is running on port ${app.get('port')}`);
