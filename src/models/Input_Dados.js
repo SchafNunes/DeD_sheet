@@ -2,6 +2,7 @@ import Classes from "./Classes";
 import Class_Features from "./Class_Features";
 import Armors from "./Armors";
 import Weapons from "./Weapons";
+import User from "./User";
 
 const classes = [
   {
@@ -531,12 +532,17 @@ const weapons = [
   },
 ];
 
+const user = [
+  {username: 'JoaoNunes', email: 'nunes@123', password: '123'} 
+];
+
 async function seedDatabase() {
   try {
     await Classes.bulkCreate(classes);
     await Class_Features.bulkCreate(class_features);
     await Armors.bulkCreate(armors);
     await Weapons.bulkCreate(weapons);
+    await User.bulkCreate(user);
     console.log("Dados inseridos com sucesso.");
   } catch (error) {
     console.log("Erro ao inserir dados: ", error);
