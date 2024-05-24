@@ -1,7 +1,7 @@
 import User from "./User";
 import Characters from "./Characters";
 import Races from "./Races";
-import Atributes from "./Atributes";
+import Attributes from "./Attributes";
 import Classes from "./Classes";
 import Weapons from "./Weapons";
 import Characters_Wepons from "./Characters_Weapons";
@@ -17,7 +17,7 @@ import seedDatabase from "./Input_Dados";
 (async () => {
     await User.sync({ force: true });
     await Races.sync({ force: true });
-    await Atributes.sync({ force: true });
+    await Attributes.sync({ force: true });
     await Classes.sync({ force: true });
     await Weapons.sync({ force: true });
     await Equipaments.sync({ force: true });
