@@ -1,7 +1,6 @@
 import  { DataTypes } from 'sequelize';
 import {sequelize} from '../config/index.js';
 
-//postgres table
 const User = sequelize.define('user', {
     id: {
         type: DataTypes.INTEGER,
@@ -12,14 +11,26 @@ const User = sequelize.define('user', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    email: {
+    passwordHash: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
+        /*
+
+        ^
+        |
+        Muda esse allownull
+
+
+        */
     },
-    password: {
-        type: DataTypes.STRING,
+    token: {
+        type: DataTypes.CHAR
+    },
+    role: {
+        type: DataTypes.CHAR,
         allowNull: false,
+        defaultValue: 'user'
     }
-});
+})
 
 export default User;
