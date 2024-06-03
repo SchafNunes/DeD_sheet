@@ -3,6 +3,7 @@ import Class_Features from "./Class_Features";
 import Armors from "./Armors";
 import Weapons from "./Weapons";
 import User from "./User";
+import Races from "./Races";
 
 const classes = [
   {
@@ -532,6 +533,44 @@ const weapons = [
   },
 ];
 
+const races = [
+  {
+    name: "Anão",
+    description:
+      "Anões são conhecidos por sua resistência e habilidade em combate, além de sua habilidade em trabalhar com metais e pedras.",
+  },
+  {
+    name: "Elfo",
+    description:
+      "Elfos são seres graciosos e misteriosos, conhecidos por sua longevidade e habilidade em magia.",
+  },
+  {
+    name: "Halfling",
+    description:
+      "Os halflings são seres pequenos e ágeis, conhecidos por sua habilidade em furtividade e sua sorte.",
+  },
+  {
+    name: "Humano",
+    description:
+      "Humanos são seres versáteis e ambiciosos, conhecidos por sua adaptabilidade e habilidade em diversas áreas.",
+  },
+  {
+    name: "Meio-Elfo",
+    description:
+      "Meio-elfos são seres que combinam a graça e a longevidade dos elfos com a versatilidade e ambição dos humanos.",
+  },
+  {
+    name: "Meio-Orc",
+    description:
+      "Meio-orcs são seres fortes e brutais, conhecidos por sua resistência e habilidade em combate.",
+  },
+  {
+    name: "Tiefling",
+    description:
+      "Tieflings são seres com sangue infernal, conhecidos por sua aparência exótica e habilidade em magia.",
+  },
+];
+
 const user = [
   {username: 'JoaoNunes', email: 'nunes@123', password: '123'} 
 ];
@@ -543,6 +582,7 @@ async function seedDatabase() {
     await Armors.bulkCreate(armors);
     await Weapons.bulkCreate(weapons);
     await User.bulkCreate(user);
+    await Races.bulkCreate(races);
     console.log("Dados inseridos com sucesso.");
   } catch (error) {
     console.log("Erro ao inserir dados: ", error);
