@@ -1,9 +1,10 @@
-import Classes from "./Classes";
-import Class_Features from "./Class_Features";
 import Armors from "./Armors";
-import Weapons from "./Weapons";
-import User from "./User";
+import Class_Features from "./Class_Features";
+import Classes from "./Classes";
+import Equipaments from "./Equipaments";
 import Races from "./Races";
+import User from "./User";
+import Weapons from "./Weapons";
 
 const classes = [
   {
@@ -571,6 +572,219 @@ const races = [
   },
 ];
 
+const equipaments = [
+  {
+    "name": "Mochila",
+    "description": "Uma mochila pode conter um pé cúbico ou 13,6 kg de equipamento.",
+    "price": "2 po",
+    "weight": "2,27 kg"
+  },
+  {
+    "name": "Saco de Dormir",
+    "description": "Você pode dormir neste saco, embora provavelmente fique com frio sem um cobertor.",
+    "price": "1 po",
+    "weight": "2,27 kg"
+  },
+  {
+    "name": "Corda de cânhamo (15 metros)",
+    "description": "A corda tem 2 pontos de vida e pode ser rompida com um teste de Força CD 17.",
+    "price": "1 po",
+    "weight": "4,54 kg"
+  },
+  {
+    "name": "Tocha",
+    "description": "Uma tocha queima por 1 hora, fornecendo luz brilhante em um raio de 6 metros e luz fraca por mais 6 metros.",
+    "price": "1 pc",
+    "weight": "0,45 kg"
+  },
+  {
+    "name": "Rações (1 dia)",
+    "description": "Rações consistem em alimentos secos adequados para aventuras prolongadas, como carne seca, frutas secas, bolachas e nozes.",
+    "price": "5 pp",
+    "weight": "0,91 kg"
+  },
+  {
+    "name": "Cantil",
+    "description": "Um cantil pode conter até 2 litros de líquido.",
+    "price": "2 pp",
+    "weight": "0,91 kg"
+  },
+  {
+    "name": "Lanterna Coberta",
+    "description": "Uma lanterna coberta emite luz brilhante em um raio de 9 metros e luz fraca por mais 9 metros. Quando a cobertura está fechada, ela emite luz fraca em um raio de 1,5 metros.",
+    "price": "5 po",
+    "weight": "0,91 kg"
+  },
+  {
+    "name": "Caixa de Isqueiro",
+    "description": "Este pequeno recipiente contém pederneira, aço de fogo e isqueiro (geralmente um pano seco embebido em óleo leve) usado para acender um fogo.",
+    "price": "5 pp",
+    "weight": "0,45 kg"
+  },
+  {
+    "name": "Kit de Escalada",
+    "description": "Um kit de escalada inclui pitões especiais, pontas de botas, luvas e um arnês. Você pode usar o kit como uma ação para se ancorar; quando você faz isso, não pode cair mais de 7,5 metros do ponto onde está ancorado.",
+    "price": "25 po",
+    "weight": "5,44 kg"
+  },
+  {
+    "name": "Gancho de Escalada",
+    "description": "Quando amarrado a uma corda, um gancho de escalada pode ajudar você a escalar uma superfície, proporcionando vantagem em testes de Força (Atletismo) feitos para escalar.",
+    "price": "2 po",
+    "weight": "1,81 kg"
+  },
+  {
+    "name": "Barraca para 2 pessoas",
+    "description": "Uma barraca feita para abrigar duas pessoas.",
+    "price": "2 po",
+    "weight": "9,07 kg"
+  },
+  {
+    "name": "Pá",
+    "description": "Uma ferramenta útil para cavar.",
+    "price": "2 po",
+    "weight": "2,27 kg"
+  },
+  {
+    "name": "Espelho de Aço",
+    "description": "Um pequeno espelho polido, útil para ver ao redor de cantos ou se arrumar.",
+    "price": "5 po",
+    "weight": "0,23 kg"
+  },
+  {
+    "name": "Martelo",
+    "description": "Uma ferramenta básica para martelar estacas ou pitões.",
+    "price": "1 po",
+    "weight": "1,36 kg"
+  },
+  {
+    "name": "Lanterna Comum",
+    "description": "Uma lanterna comum que queima óleo por 6 horas em uma radiação de 4,5 metros de luz brilhante e o mesmo de luz fraca.",
+    "price": "5 pp",
+    "weight": "0,45 kg"
+  },
+  {
+    "name": "Frasco",
+    "description": "Um pequeno recipiente de vidro, cerâmica ou metal, útil para armazenar líquidos, como poções.",
+    "price": "2 pp",
+    "weight": "0,45 kg"
+  },
+  {
+    "name": "Óleo (frasco)",
+    "description": "O óleo pode ser usado para alimentar lâmpadas. Como ação, você pode salpicar o óleo de um frasco em uma criatura.",
+    "price": "1 pp",
+    "weight": "0,45 kg"
+  },
+  {
+    "name": "Pequena Caixa de Ferro",
+    "description": "Uma pequena caixa de ferro robusta, ideal para guardar objetos de valor.",
+    "price": "5 po",
+    "weight": "0,45 kg"
+  },
+  {
+    "name": "Arpéu",
+    "description": "Uma vara longa com um gancho em uma ponta, usada para pegar ou mover objetos em chamas.",
+    "price": "2 po",
+    "weight": "1,81 kg"
+  },
+  {
+    "name": "Lente de Aumento",
+    "description": "Esta lente de vidro permite que o usuário veja pequenos detalhes mais claramente.",
+    "price": "100 po",
+    "weight": "0 kg"
+  },
+  {
+    "name": "Sineta",
+    "description": "Um pequeno sino de metal com uma alça, útil para alarmes ou chamar a atenção.",
+    "price": "1 po",
+    "weight": "0 kg"
+  },
+  {
+    "name": "Pé de Cabra",
+    "description": "Essa alavanca de metal é excelente para abrir portas, caixotes ou pranchas de madeira.",
+    "price": "2 po",
+    "weight": "2,27 kg"
+  },
+  {
+    "name": "Roupa Comum",
+    "description": "Conjunto de roupas simples e apropriadas para o clima comum.",
+    "price": "5 pp",
+    "weight": "1,36 kg"
+  },
+  {
+    "name": "Roupa de Viajar",
+    "description": "Conjunto de roupas resistentes feitas para viagens longas.",
+    "price": "2 po",
+    "weight": "1,81 kg"
+  },
+  {
+    "name": "Lâmina de Afiar",
+    "description": "Uma ferramenta pequena usada para afiar lâminas.",
+    "price": "5 pp",
+    "weight": "0,45 kg"
+  },
+  {
+    "name": "Corda de seda (15 metros)",
+    "description": "A corda de seda tem 2 pontos de vida e pode ser rompida com um teste de Força CD 17.",
+    "price": "10 po",
+    "weight": "2,27 kg"
+  },
+  {
+    "name": "Cobertor",
+    "description": "Um grande cobertor de lã que pode ajudar a manter-se aquecido.",
+    "price": "5 pp",
+    "weight": "1,36 kg"
+  },
+  {
+    "name": "Lâmpada",
+    "description": "Uma lâmpada que queima por 6 horas em uma radiação de 1,5 metros de luz brilhante e mais 1,5 metros de luz fraca.",
+    "price": "5 pp",
+    "weight": "0,45 kg"
+  },
+  {
+    "name": "Panela de Ferro",
+    "description": "Uma panela robusta, útil para cozinhar durante as viagens.",
+    "price": "2 po",
+    "weight": "4,54 kg"
+  },
+  {
+    "name": "Espelho pequeno",
+    "description": "Um espelho pequeno de vidro emoldurado em metal, útil para ver ao redor de cantos ou se arrumar.",
+    "price": "5 po",
+    "weight": "0,11 kg"
+  },
+  {
+    "name": "Picareta de Mineração",
+    "description": "Uma ferramenta usada para cavar rochas e terra.",
+    "price": "2 po",
+    "weight": "4,54 kg"
+  },
+  {
+    "name": "Saco de Areia",
+    "description": "Um pequeno saco preenchido com areia, usado como contrapeso ou em armadilhas.",
+    "price": "1 pc",
+    "weight": "11,34 kg"
+  },
+  {
+    "name": "Cofre",
+    "description": "Um pequeno cofre robusto para proteger objetos de valor.",
+    "price": "50 po",
+    "weight": "11,34 kg"
+  },
+  {
+    "name": "Serra",
+    "description": "Uma ferramenta para cortar madeira ou outros materiais.",
+    "price": "2 po",
+    "weight": "1,81 kg"
+  },
+  {
+    "name": "Rede",
+    "description": "Uma rede usada para capturar criaturas pequenas ou médias.",
+    "price": "1 po",
+    "weight": "1,36 kg"
+  },
+];
+
 const user = [
   {username: 'JoaoNunes', email: 'nunes@123', password: '123'} 
 ];
@@ -583,6 +797,7 @@ async function seedDatabase() {
     await Weapons.bulkCreate(weapons);
     await User.bulkCreate(user);
     await Races.bulkCreate(races);
+    await Equipaments.bulkCreate(equipaments);
     console.log("Dados inseridos com sucesso.");
   } catch (error) {
     console.log("Erro ao inserir dados: ", error);
