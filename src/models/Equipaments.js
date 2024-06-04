@@ -16,11 +16,11 @@ const Equipaments = sequelize.define('equipaments', {
         allowNull: false
     },
     price: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.STRING,
         allowNull: false
     },
     weight: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.STRING,
         allowNull: false
     }
 });
