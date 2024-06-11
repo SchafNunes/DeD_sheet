@@ -19,5 +19,15 @@ const updateAttribute = async (req, res) => {
     }
 }
 
-export default { updateAttribute };
+const getAttributes = async (req, res) => {
+    try {
+        const { character_id } = req.params; // Extract character_id from route parameters
+        const attributes = await Attributes.findAll({ where: { character_id } });
+        return res.status(200).json(attributes);
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
+    }
+};
 
+
+export default { updateAttribute, getAttributes };

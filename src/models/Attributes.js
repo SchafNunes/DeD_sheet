@@ -1,5 +1,6 @@
 import  { DataTypes } from 'sequelize';
 import {sequelize} from '../config/index.js';
+import Characters from './Characters.js';
 
 
 //id, strength, dexterity, constitution, intelligence, wisdom, charisma
@@ -8,6 +9,9 @@ const Attributes = sequelize.define('attributes', {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
+    },
+    character_id: {
+        type: DataTypes.INTEGER
     },
     strength: {
         type: DataTypes.INTEGER
@@ -28,7 +32,6 @@ const Attributes = sequelize.define('attributes', {
         type: DataTypes.INTEGER
     }
 });
-
 
 
 export default Attributes;

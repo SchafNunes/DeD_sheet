@@ -7,7 +7,7 @@ const createCharacter = async (req, res) => {
         const { user_id, name, class_id, race_id } = req.body;
         const character = await Characters.create({ user_id, name, class_id, race_id });
 
-        const attributes = await Attributes.create({});
+        const attributes = await Attributes.create({ character_id: character.id });
 
        await character.update({ attribute_id: attributes.id });
         
