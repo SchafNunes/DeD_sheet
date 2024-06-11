@@ -33,6 +33,6 @@ app.use((req, res) =>
 );
 
 app.listen(3333, () => {
-    console.log(`Server is running on port ${app.get('port')}`);
+    console.log(`Server is running on port 3333`);
 });
 export default app;
