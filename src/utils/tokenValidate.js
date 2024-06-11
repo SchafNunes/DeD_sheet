@@ -1,41 +1,68 @@
 import { sequelize } from "../config/index";
 import { Op } from "sequelize";
-import  jwt  from "jsonwebtoken";
+import jwt from "jsonwebtoken";
+import { jwtDecode } from "jwt-decode";
 import * as bcrypt from "bcrypt";
-import Usuario from "../models/User";
-
+import User from "../models/User";
 
 const validate = async (req, res, next) => {
-  let { username } = req.body;
-  let dataBase =  await Usuario.findOne({
-    where: { username: username },
-  });
+  try {
+    let { username } = req.body;
+    let usuario = await User.findOne({
+      where: { username },
+    });
 
-  if (!dataBase){
-    return res.status(200).send({
-      type: "error",
-      message: "Usuario invalido",
-    })
-  }
+    if (!usuario) {
+      return res.status(200).send({
+        type: "error",
+        message: "Usuario não encontrado",
+      });
+    }
 
-  if(!dataBase.dataValues.token){
-    return res.status(200).send({
-      type: "error",
-      message: "Acesso Recusado faça login antes",
-    })
-  }
+    console.log(usuario);
 
-  let tokenBroked = await jwt.decode(dataBase.dataValues.token)
-  
-  if(tokenBroked.exp < Date.now()/1000) {
-    return res.status(200).send({
+    if (!usuario.dataValues.token) {
+      return res.status(200).send({
+        type: "error",
+        message: "Realize login",
+      });
+    }
+
+    const token = usuario.dataValues.token;
+    console.log(`token: ${token}`);
+
+    let decoded;
+    try {
+      decoded = jwtDecode(token.toString());
+      if (!decoded) {
+        throw new Error("Token inválido");
+      }
+      console.log(`decoded: ${JSON.stringify(decoded)}`);
+    } catch (err) {
+      console.error(err);
+      return res.status(200).send({
+        type: "error",
+        message: "Token inválido",
+      });
+    }
+
+    if (decoded.exp < Date.now() / 1000) {
+      return res.status(200).send({
+        type: "error",
+        message: "Acesso Recusado, token expirado",
+      });
+    }
+
+    next();
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({
       type: "error",
-      message: "Acesso Recusado, token expirado",
-    })
+      message: "Ocorreu um erro no servidor",
+    });
   }
-  next()
-}
+};
 
 export default {
-  validate
-}
+  validate,
+};
