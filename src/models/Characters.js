@@ -34,7 +34,6 @@ Characters.belongsTo(Races, { foreignKey: 'race_id', as: 'raca' });
 Characters.belongsTo(Attributes, { foreignKey: 'attribute_id', as: 'attribute' });
 Characters.belongsTo(Classes, { foreignKey: 'class_id', as: 'class' });
 
-
-
+Attributes.belongsTo(Characters, { foreignKey: 'character_id', as: 'character' });
 
 export default Characters;
