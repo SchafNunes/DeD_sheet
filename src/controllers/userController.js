@@ -19,6 +19,34 @@ const getAll = async (req, res) => {
   }
 };
 
+const getUserByToken = async (req, res) => {
+  try {
+    let token = req.headers['authorization'];
+    let user = await User.findOne({
+      where: { token: token },
+    });
+
+    if (!user) {
+      return res.status(200).send({
+        type: "error",
+        message: `Usuario não encontradooooo${token}`,
+      });
+    }
+
+    return res.status(200).send({
+      type: "success",
+      message: "Usuario encontrado",
+      data: user,
+    });
+  } catch (error) {
+    return res.status(500).send({
+      type: "error",
+      message: "Erro ao buscar usuario",
+      data: error,
+    });
+  }
+}
+
 const create = async (req, res) => {
   try {
     let { password, username } = req.body;
@@ -91,4 +119,5 @@ export default {
   getAll,
   create,
   login,
+  getUserByToken
 };

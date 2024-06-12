@@ -785,9 +785,9 @@ const equipaments = [
   },
 ];
 
-const user = [
-  {username: 'JoaoNunes', email: 'nunes@123', password: '123'} 
-];
+// const user = [
+//   {username: 'JoaoNunes', email: 'nunes@123', password: '123'} 
+// ];
 
 async function seedDatabase() {
   try {
@@ -795,7 +795,7 @@ async function seedDatabase() {
     await Class_Features.bulkCreate(class_features);
     await Armors.bulkCreate(armors);
     await Weapons.bulkCreate(weapons);
-    await User.bulkCreate(user);
+    // await User.bulkCreate(user);
     await Races.bulkCreate(races);
     await Equipaments.bulkCreate(equipaments);
     console.log("Dados inseridos com sucesso.");
