@@ -14,7 +14,7 @@ const createCharacter = async (req, res) => {
         return res.status(201).json({ character, attributes });
     }
     catch (err) {
-        return res.status(500).json({ error: err.message });
+        return res.status(500).json({ error: err });
     }
 }
 
