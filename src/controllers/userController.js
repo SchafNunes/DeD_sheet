@@ -29,7 +29,7 @@ const getUserByToken = async (req, res) => {
     if (!user) {
       return res.status(200).send({
         type: "error",
-        message: `Usuario não encontradooooo${token}`,
+        message: `Usuario não encontradooooo`,
       });
     }
 
