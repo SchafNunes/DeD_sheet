@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/index.js";
 
-//id, name, description, price, weight, armor_class, strength, stealth, equipament_type
+
 const Armors = sequelize.define("armors", {
   id: {
     type: DataTypes.INTEGER,

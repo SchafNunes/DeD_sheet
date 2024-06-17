@@ -1,7 +1,6 @@
 import { DataTypes } from "sequelize";
 import {sequelize} from '../config/index.js';
 
-//table id, name, description
 
 const Class_Features = sequelize.define('class_features', {
     id: {

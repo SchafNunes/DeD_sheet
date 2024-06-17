@@ -55,7 +55,7 @@ const create = async (req, res) => {
       username: username,
       passwordHash: passwordHash,
     };
-    console.log(`A senha informada foi password: ${password}, e o hash criado foi password: ${passwordHash}`);
+  
 
     let response = await User.create(createUser);
     return res.status(200).send({
@@ -88,7 +88,7 @@ const login = async (req, res) => {
     }
 
     if (await bcrypt.compare(password, usuario.dataValues.passwordHash.toString())) {
-      let token = jwt.sign({ username }, process.env.PRIVATE_KEY, { expiresIn: '5m' }); // Corrigir expiresIn para 5 minutos
+      let token = jwt.sign({ username }, process.env.PRIVATE_KEY, { expiresIn: '5m' }); 
 
       usuario.set({
         token: token,
