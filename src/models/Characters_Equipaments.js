@@ -4,7 +4,6 @@ import Characters from './Characters.js';
 import Equipaments from './Equipaments.js';
 
 
-//table of relation between characters and equipaments
 const Characters_Equipaments = sequelize.define('characters_equipaments', {
     character_id: {
         type: DataTypes.INTEGER,

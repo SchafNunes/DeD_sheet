@@ -3,7 +3,6 @@ import {sequelize} from '../config/index.js';
 import Characters from './Characters.js';
 
 
-//id, strength, dexterity, constitution, intelligence, wisdom, charisma
 const Attributes = sequelize.define('attributes', {
     id: {
         type: DataTypes.INTEGER,

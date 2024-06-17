@@ -19,7 +19,6 @@ const validate = async (req, res, next) => {
       });
     }
 
-    console.log(usuario);
 
     if (!usuario.dataValues.token) {
       return res.status(200).send({

@@ -3,7 +3,7 @@ import Attributes from "../models/Attributes";
 const updateAttribute = async (req, res) => {  
     try {
         const { strength, dexterity, constitution, intelligence, wisdom, charisma } = req.body;
-        const { id } = req.params; // Extract id from route parameters
+        const { id } = req.params; 
         const attributes = await Attributes.update(
             { strength, dexterity, constitution, intelligence, wisdom, charisma }, 
             { where: { id } }
@@ -21,7 +21,7 @@ const updateAttribute = async (req, res) => {
 
 const getAttributes = async (req, res) => {
     try {
-        const { character_id } = req.params; // Extract character_id from route parameters
+        const { character_id } = req.params; 
         const attributes = await Attributes.findAll({ where: { character_id } });
         return res.status(200).json(attributes);
     } catch (err) {

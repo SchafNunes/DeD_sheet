@@ -5,7 +5,6 @@ import Races from './Races.js'
 import Attributes from "./Attributes.js";
 import Classes from "./Classes.js";
     
-//table id, users_id foreing_key, name, races_id foreingkey, classes.id foreingkey
 const Characters = sequelize.define('characters', {
     id: {
         type: DataTypes.INTEGER,
