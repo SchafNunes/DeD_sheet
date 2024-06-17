@@ -17,6 +17,38 @@ const createCharacter = async (req, res) => {
     }
 }
 
+const getCharacterById = async (req, res) =>{
+    try {
+        const { id } = req.params;
+        const character = await Characters.findOne({ where: { id }, include: ['user', 'raca', 'attribute', 'class'] });
+
+        if (!character) {
+            return res.status(404).json({ error: 'Personagem não encontrado' });
+        }
+
+        return res.status(200).json({ character });
+    } catch (err) {
+        return res.status(500).json({ error: err });
+    }
+}
+
+const deleteCharacterById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const character = await Characters.findOne({ where: { id } });
+
+        if (!character) {
+            return res.status(404).json({ error: 'Personagem não encontrado' });
+        }
+
+        await character.destroy();
+
+        return res.status(200).json({ message: 'Personagem deletado com sucesso' });
+    } catch (err) {
+        return res.status(500).json({ error: err });
+    }
+}
+
 const getCharactersByUser = async (req, res) => {
     try {
         const { username } = req.body;
@@ -36,5 +68,8 @@ const getCharactersByUser = async (req, res) => {
 
 export default { 
     createCharacter,
-    getCharactersByUser 
+    getCharactersByUser,
+    getCharacterById,
+    deleteCharacterById
+
 };
