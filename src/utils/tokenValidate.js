@@ -28,7 +28,7 @@ const validate = async (req, res, next) => {
     }
 
     const token = usuario.dataValues.token;
-    console.log(`token: ${token}`);
+    
 
     let decoded;
     try {
@@ -36,7 +36,7 @@ const validate = async (req, res, next) => {
       if (!decoded) {
         throw new Error("Token inválido");
       }
-      console.log(`decoded: ${JSON.stringify(decoded)}`);
+     
     } catch (err) {
       console.error(err);
       return res.status(200).send({

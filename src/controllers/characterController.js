@@ -59,7 +59,7 @@ const getCharactersByUser = async (req, res) => {
         }
 
         const characters = await Characters.findAll({ where: { user_id: user.id }, include: ['user', 'raca', 'attribute', 'class'] });
-
+        
         return res.status(200).json({ characters });
     } catch (err) {
         return res.status(500).json({ error: err });
